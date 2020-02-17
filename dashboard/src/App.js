@@ -1,10 +1,17 @@
 import React from 'react';
+import {Route} from 'react-router-dom';
 import './App.scss';
+import SignIn from './Components/SignIn/SignIn';
+import Dashboard from './Components/Dashboard/Dashboard';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
-function App() {
+function App() { 
   return (
     <div className="App">
-      <h1>Dashboard</h1>
+      <Route path="/" exact>
+        <SignIn />
+      </Route>
+      <PrivateRoute exact path="/dashboard" component={Dashboard} /> 
     </div>
   );
 }
