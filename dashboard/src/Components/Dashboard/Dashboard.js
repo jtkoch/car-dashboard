@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import './Dashboard.scss';
 import {server} from '../../axios';
 import {useHistory} from 'react-router-dom';
+import AddCar from '../AddCar/AddCar';
 
 function Dashboard() {
   const [cars, setCars] = useState([]);
@@ -14,6 +15,7 @@ function Dashboard() {
     }, [])
   return (
     <div>
+      <AddCar/>
       <h1>Dashboard</h1>
       <button onClick={() => {localStorage.clear(); history.push('/');}}>Sign Out</button>
       <div className="information">
