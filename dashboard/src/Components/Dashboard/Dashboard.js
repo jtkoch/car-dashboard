@@ -2,21 +2,25 @@ import React, {useState, useEffect} from 'react'
 import './Dashboard.scss';
 import {server} from '../../axios';
 import {useHistory} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import AddCar from '../AddCar/AddCar';
 
-function Dashboard() {
+function Dashboard(props) {
   const [cars, setCars] = useState([]);
-  const history = useHistory()
-
+  const history = useHistory();
+  const {carList, setCarList} = props;
     useEffect(() => {
       server.get('/cars')
-        .then(res => setCars(res.data))
-        .catch(err => console.log(err))
+        .then((res) => { 
+          setCars(res.data)
+          setCarList(res.data)
+        })  
+        .catch((err) => console.log(err));
     }, [])
   return (
     <div>
-      <AddCar/>
       <h1>Dashboard</h1>
+      <Link to="/add" >Add Car</Link>
       <button onClick={() => {localStorage.clear(); history.push('/');}}>Sign Out</button>
       <div className="information">
         <p>Number of Cars in Inventory: {cars.length}</p>
