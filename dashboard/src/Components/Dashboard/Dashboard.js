@@ -17,6 +17,19 @@ function Dashboard(props) {
         })  
         .catch((err) => console.log(err));
     }, [])
+
+    const handleDelete = (id) => {
+      server.delete(`/cars/${id}`)
+      .then(res => console.log(res))
+      .then(() => {
+          const filtered = cars.filter(car => {
+            return car._id != id
+          });
+          setCars(filtered)
+        })
+      .catch(err => console.log(err))  
+    }
+
   return (
     <div>
       <h1>Dashboard</h1>
@@ -31,7 +44,7 @@ function Dashboard(props) {
       <div className="curentInventory">
         {cars.map(car => {
           return <p key={car._id} >{car.year}, {car.make}, {car.model}, {car.miles}, {car.color}, {car.vin} 
-          <button>Delete</button> <button>Edit</button> </p>
+          <button onClick={() => handleDelete(car._id)}>Delete</button> <button>Edit</button> </p>
         })}
       </div>
     </div>
