@@ -12,6 +12,7 @@ function App(props) {
   return (
     <div className="App">
       <Route path="/" exact>
+        <h1 className="welcome">Welcome, Please Sign In</h1>
         <SignIn />
       </Route>
       <Route path="/add">

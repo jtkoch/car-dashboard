@@ -23,11 +23,11 @@ function SignIn(props) {
      return <Redirect to="/dashboard/"/>
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="sign-in" onSubmit={handleSubmit(onSubmit)}>
       <input placeholder="username" name="username" ref={ register({ required:true, pattern: /^[a-z0-9_-]*$/i})}/>
       {errors.username && "Username Is Required"}
-      <input placeholder="password" type="password" name="password" ref={ register({ required:true,  pattern: /^(?=.*\d).{4,8}$/ })} />
-      {errors.password && "Password must contain a letter and number and be between 4 and 8 Characters"}
+      <input placeholder="password" type="password" name="password" ref={ register({ required:true,  pattern: /^(?=.*\d).{4,16}$/ })} />
+      {errors.password && "Password must contain a letter and number and be between 4 and 16 Characters"}
       <input type="submit" />
       {signInError && "Username Or Password Don't Match"}
     </form>
