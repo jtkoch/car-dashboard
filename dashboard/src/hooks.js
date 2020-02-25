@@ -9,3 +9,13 @@ export const useFormInput = function useFormInput(placeholder, initialValue){
     value, placeholder: placeholder, onChange: handleChange
   }
 }
+
+export const useToggle = function useToggle(initialValue){
+  const [toggle, setToggle] = useState(initialValue);
+
+  function toggleBoolean(){
+      setToggle(!toggle)
+  }
+
+  return [toggle,toggleBoolean]
+}
