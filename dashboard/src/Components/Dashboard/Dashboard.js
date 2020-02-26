@@ -56,15 +56,15 @@ function Dashboard(props) {
 
   return (
     <div className="dash-wrapper">
-      <h1>Dashboard</h1>
+      <h1>Car Dashboard</h1>
       <Link to='/add'>Add Car</Link>
-      <button
+      {/* <button
         onClick={() => {
           localStorage.clear();
           history.push('/');
         }}>
         Sign Out
-        </button>
+        </button> */}
       <div className='information'>
         <p>Number of Cars in Inventory: {cars.length}</p>
         <p>
@@ -79,10 +79,10 @@ function Dashboard(props) {
         <Table dark className='table'>
           <thead>
             <tr className='table-row'>
-              <th onClick={() => sort("year")}>Year</th>
+              <th>Year</th>
               <th>Make</th>
               <th>Model</th>
-              <th onClick = {() => sort("price")}>Price</th>
+              <th>Price</th>
               <th>Miles</th>
               <th>Color</th>
               <th>Vin</th>

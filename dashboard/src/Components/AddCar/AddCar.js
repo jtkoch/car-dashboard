@@ -13,7 +13,7 @@ export default function SignIn(props) {
     server
       .post('/cars', car)
       .then(res => console.log(res))
-      .then(history.push('/dashboard'))
+      .then(history.push('/'))
       .catch(err => console.log(err)) 
   }
 
